@@ -4,6 +4,7 @@ from src.agents.agent_config import AgentConfig
 from src.tools.tool_config import ToolConfig, Parameter
 from src.core.chat_manager import ChatManager
 from src.utils.llm_utils import setup_openai
+from src.agents.meeting_assistant import MeetingAssistant
 
 def create_tools():
     """Create and return a list of available tools."""
@@ -57,6 +58,10 @@ def create_agents(tools):
         expected_output="Weather information in a user-friendly format"
     )
     agents.append(weather_agent)
+    
+    # Meeting Assistant
+    meeting_assistant = MeetingAssistant()
+    agents.append(meeting_assistant)
     
     return agents
 
